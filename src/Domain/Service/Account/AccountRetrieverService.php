@@ -29,20 +29,12 @@ class AccountRetrieverService
 
     private function getIsa(string $accountHolder): ?IsaAccount
     {
-        try {
-            return $this->isaAccountRepository->findOneByAccountHolder($accountHolder);
-        } catch (\Throwable) {
-            return null;
-        }
+        return $this->isaAccountRepository->findOneByAccountHolder($accountHolder);
     }
 
     private function getJisa(string $accountHolder): ?JisaAccount
     {
-        try {
-            return $this->jisaAccountRepository->findOneBy(['accountHolder' => $accountHolder]);
-        } catch (\Throwable) {
-            return null;
-        }
+        return $this->jisaAccountRepository->findOneByAccountHolder($accountHolder);
     }
 
 }

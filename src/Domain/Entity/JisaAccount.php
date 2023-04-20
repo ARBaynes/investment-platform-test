@@ -19,7 +19,7 @@ class JisaAccount implements AccountInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id = 2;
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'float')]
@@ -84,5 +84,15 @@ class JisaAccount implements AccountInterface
     public function setAccountHolderBirthday(DateTime $accountHolderBirthday): void
     {
         $this->accountHolderBirthday = $accountHolderBirthday;
+    }
+
+    public function getAccountType(): string
+    {
+        return self::ACCOUNT_TYPE;
+    }
+
+    public function getAccountLimit(): float
+    {
+        return self::ACCOUNT_LIMIT;
     }
 }

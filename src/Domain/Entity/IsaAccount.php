@@ -29,7 +29,7 @@ class IsaAccount implements AccountInterface
     private float $balance = 0;
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Share::class, orphanRemoval: false)]
-    private Collection $shares;
+    private ArrayCollection $shares;
 
     public function __construct(string $accountHolder)
     {
@@ -52,14 +52,14 @@ class IsaAccount implements AccountInterface
         $this->balance = $balance;
     }
 
-    public function getShares(): Collection
+    public function getShares(): ArrayCollection
     {
         return $this->shares;
     }
 
-    public function addShare(Share $shares): void
+    public function addShare(Share $share): void
     {
-        $this->shares->add($shares);
+        $this->shares->add($share);
     }
 
     public function getAccountHolder(): string
@@ -70,5 +70,15 @@ class IsaAccount implements AccountInterface
     public function setAccountHolder(string $accountHolder): void
     {
         $this->accountHolder = $accountHolder;
+    }
+
+    public function getAccountType(): string
+    {
+        return self::ACCOUNT_TYPE;
+    }
+
+    public function getAccountLimit(): float
+    {
+        return self::ACCOUNT_LIMIT;
     }
 }

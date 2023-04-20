@@ -18,7 +18,7 @@ class IsaAccount implements AccountInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id = 1;
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]

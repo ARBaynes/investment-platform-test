@@ -40,15 +40,15 @@ class AccountController extends AbstractController
     {
         $account = $this->accountCreatorService->createIsaAccount($accountHolder);
 
-        if (!$account) {
-            $this->json([
-                'message' => 'Could not create account. Please contact your representative.',
+        if ($account !== null) {
+            return $this->json([
+                'message' => 'Account with id '. $account->getId() . ' created.',
+                'path' => 'src/Application/Controller/AccountController.php',
             ]);
         }
 
         return $this->json([
-            'message' => 'Account with id '. $account->getId() . ' created.',
-            'path' => 'src/Application/Controller/AccountController.php',
+            'message' => 'Could not create account. Please contact your representative.',
         ]);
     }
 

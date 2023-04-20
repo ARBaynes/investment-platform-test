@@ -30,7 +30,7 @@ class AccountRetrieverService
     private function getIsa(string $accountHolder): ?IsaAccount
     {
         try {
-            return $this->isaAccountRepository->findOneBy(['accountHolder' => $accountHolder]);
+            return $this->isaAccountRepository->findOneByAccountHolder($accountHolder);
         } catch (\Throwable) {
             return null;
         }

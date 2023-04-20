@@ -14,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method JisaAccount[]    findAll()
  * @method JisaAccount[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class JISAAccountRepository extends ServiceEntityRepository
+class JisaAccountRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

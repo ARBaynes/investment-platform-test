@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b938d37f-703b-4a99-94e3-9e246d1e6b24" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Entity/Interfaces/AccountInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Exceptions/Account/AccountDoesNotExistException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Exceptions/Account/AccountTypeCannotPerformActionException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/Account/AccountBalanceCheckService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/Account/AccountBalanceUpdaterService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/Account/AccountCreatorService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/Account/AccountRetrieverService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/AgeCheckerService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/TimeCheckerService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Command/AccountBuyCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Command/AccountDepositCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Command/AccountWithdrawCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Command/DisplayBalanceCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Command/ShareBuyCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Command/ShareListCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entity/AbstractAccount.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entity/Company.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entity/IsaAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entity/IsaAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entity/JisaAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entity/JisaAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entity/Share.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entity/Share.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Repository/AbstractAccountRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Repository/CompanyRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Repository/JISAAccountRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Repository/JisaAccountRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2OhIrjECBFbuF3FNroPnam5Uzya" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/annabel.baynes/CleanProjects/investment-platform-test/src/Domain/Service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Domain/Service" />
+      <recent name="$PROJECT_DIR$/src/Domain/Exceptions" />
+      <recent name="$PROJECT_DIR$/src/Domain/Entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Domain/Trait" />
+      <recent name="$PROJECT_DIR$/src/Infrastructure" />
+      <recent name="$PROJECT_DIR$/src/Application" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b938d37f-703b-4a99-94e3-9e246d1e6b24" name="Changes" comment="" />
+      <created>1682006589668</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682006589668</updated>
+      <workItem from="1682006591064" duration="219000" />
+      <workItem from="1682008394859" duration="275000" />
+      <workItem from="1682008941108" duration="7797000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

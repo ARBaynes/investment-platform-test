@@ -1,4 +1,18 @@
 {
+    "doctrine/doctrine-bundle": {
+        "version": "2.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.8",
+            "ref": "6b43b7b6ff6bf2551f2933ebeb66721fa3db8fbc"
+        },
+        "files": [
+            "config/packages/doctrine.yaml",
+            "src/Domain/Entity/.gitignore",
+            "src/Infrastructure/Repository/.gitignore"
+        ]
+    },
     "symfony/console": {
         "version": "6.2",
         "recipe": {
@@ -41,6 +55,15 @@
             "src/Controller/.gitignore",
             "src/Kernel.php"
         ]
+    },
+    "symfony/maker-bundle": {
+        "version": "1.48",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
     },
     "symfony/routing": {
         "version": "6.2",

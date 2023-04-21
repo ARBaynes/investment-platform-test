@@ -1,46 +1,84 @@
-# Symfony Docker
+# Investment Platform Test
 
-A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework, with full [HTTP/2](https://symfony.com/doc/current/weblink.html), HTTP/3 and HTTPS support.
+## Endpoints
 
-![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
+Assume all methods are `POST` unless specified otherwise
 
-## Getting Started
+### Account
+Note: only one account of each type can be created currently, due to the limitations of the data mocking.
 
-1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
-2. Run `docker compose build --pull --no-cache` to build fresh images
-3. Run `docker compose up` (the logs will be displayed in the current shell)
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker compose down --remove-orphans` to stop the Docker containers.
+#### create ISA
+path: `/account/create-isa`
 
-## Features
+args:
+* `accountHolder` - account holder name (string)
 
-* Production, development and CI ready
-* [Installation of extra Docker Compose services](docs/extra-services.md) with Symfony Flex
-* Automatic HTTPS (in dev and in prod!)
-* HTTP/2, HTTP/3 and [Preload](https://symfony.com/doc/current/web_link.html) support
-* Built-in [Mercure](https://symfony.com/doc/current/mercure.html) hub
-* [Vulcain](https://vulcain.rocks) support
-* Native [XDebug](docs/xdebug.md) integration
-* Just 2 services (PHP FPM and Caddy server)
-* Super-readable configuration
+#### create JISA
+path: `/account/create-jisa`
 
-**Enjoy!**
+args:
+* `accountHolder` - account holder name (string)
+* `accountHolderBirthday` - account holder`s birthday in YYYY-mm-dd format (string)
 
-## Docs
+#### balance
+path: `/account/balance`
 
-1. [Build options](docs/build.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Debugging with Xdebug](docs/xdebug.md)
-6. [TLS Certificates](docs/tls.md)
-7. [Using a Makefile](docs/makefile.md)
-8. [Troubleshooting](docs/troubleshooting.md)
+args: 
+* `accountType` - either ISA or JISA (string)
+* `accountHolder` - account holder name (string)
 
-## License
+#### deposit
+path: `/account/deposit`
 
-Symfony Docker is available under the MIT License.
+args:
+* `accountType` - either ISA or JISA (string)
+* `accountHolder` - account holder name (string)
+* `amount` - amount to deposit (float)
 
-## Credits
+#### withdraw
+path: `/account/withdraw`
 
-Created by [Kévin Dunglas](https://dunglas.fr), co-maintained by [Maxime Helias](https://twitter.com/maxhelias) and sponsored by [Les-Tilleuls.coop](https://les-tilleuls.coop).
+args:
+* `accountType` - either ISA or JISA (string)
+* `accountHolder` - account holder name (string)
+* `amount` - amount to withdraw (float)
+
+#### shares
+path: `/account/shares`
+
+args:
+* `accountType` - either ISA or JISA (string)
+* `accountHolder` - account holder name (string)
+
+### Shares
+
+#### list
+path: `/shares/list`
+
+method: `GET`
+
+#### create
+path: `/shares/create`
+
+args:
+* `slug` - The **unique** identifier for this share
+* `company` - The company that these shares are for
+* `startingValue` - The value this block of shares begins with
+* `startingPrice` - *Optional* The price this block of shares costs
+
+(Note: I definitely should have included a shares amount)
+
+
+#### buy
+path: `/shares/buy/{slug}`,
+args: 
+* `{slug}` - path variable of the unique shares slug that you wish to purchase
+* `accountType` - either ISA or JISA (string)
+* `accountHolder` - account holder name (string)
+
+## Setting up
+
+1. Run `docker compose build --pull --no-cache` to build fresh images
+2. Run `docker compose up` (the logs will be displayed in the current shell)
+3. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
+4. Run `docker compose down --remove-orphans` to stop the Docker containers.

@@ -49,7 +49,7 @@ class AccountController extends AbstractController
                     'path' => '/account/withdraw',
                     'args' => ['accountType[ISA|JISA]', 'accountHolder[name]', 'amount']
                 ],
-                'withdraw' => [
+                'shares' => [
                     'path' => '/account/shares',
                     'args' => ['accountType[ISA|JISA]', 'accountHolder[name]', 'amount']
                 ]

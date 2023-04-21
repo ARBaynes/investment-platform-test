@@ -57,9 +57,9 @@ class IsaAccount implements AccountInterface
         return $this->shares;
     }
 
-    public function addShare(Share $share): void
+    public function addShare(string $slug): void
     {
-        $this->shares->add($share);
+        $this->shares->add($slug);
     }
 
     public function getAccountHolder(): string

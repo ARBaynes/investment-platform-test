@@ -39,15 +39,19 @@ class AccountController extends AbstractController
                 ],
                 'balance' => [
                     'path' => '/account/balance',
-                    'args' => ['accountType[ISA/JISA]', 'accountHolder[name]']
+                    'args' => ['accountType[ISA|JISA]', 'accountHolder[name]']
                 ],
                 'deposit' => [
                     'path' => '/account/deposit',
-                    'args' => ['accountType[ISA/JISA]', 'accountHolder[name]', 'amount']
+                    'args' => ['accountType[ISA|JISA]', 'accountHolder[name]', 'amount']
                 ],
                 'withdraw' => [
                     'path' => '/account/withdraw',
-                    'args' => ['accountType[ISA/JISA]', 'accountHolder[name]', 'amount']
+                    'args' => ['accountType[ISA|JISA]', 'accountHolder[name]', 'amount']
+                ],
+                'withdraw' => [
+                    'path' => '/account/shares',
+                    'args' => ['accountType[ISA|JISA]', 'accountHolder[name]', 'amount']
                 ]
             ]
         ]);
@@ -149,18 +153,22 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/account/{accountType}/{accountHolder}/shares', name: 'app_application_account_shares', methods: ['POST'])]
+    #[Route('/account/shares', name: 'app_application_account_shares', methods: ['POST'])]
     public function shares(Request $request): JsonResponse
     {
         $account = $this->getAccount($request);
         if (is_array($account)) {
             return $this->json($account);
         }
-
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Application/Controller/AccountController.php',
-        ]);
+        $sharesHeld = $this->accountBalanceCheckService->checkSharesHeld($account);
+        foreach ($sharesHeld as $share) {
+            $message[] = [
+                'slug' => $share->getSlug(),
+                'company' => $share->getCompany(),
+                'value' => $share->getValue(),
+            ];
+        }
+        return $this->json(['accountHolder' => $account->getAccountHolder(),'shares' => $message ?? []]);
     }
 
     // This is mostly being used as a shortcut for returning the same json messages for the balance related functions
@@ -170,10 +178,10 @@ class AccountController extends AbstractController
         $accountType = $request->get('accountType');
 
         if (!is_string($accountHolder) || !is_string($accountType)) {
-            return ['message' => 'Please supply both an accountHolder and an accountType (either ISA or JISA.'];
+            return ['message' => 'Please supply both an accountHolder and an accountType (either ISA or JISA).'];
         }
 
-        $account = $this->accountRetrieverService->retrieve($accountType, $accountHolder);
+        $account = $this->accountRetrieverService->retrieve(strtoupper($accountType), $accountHolder);
 
         return $account ?? ['message' => 'Account not found.',];
     }

@@ -2,7 +2,6 @@
 
 namespace App\Domain\Entity;
 
-use App\Entity\Brand;
 use App\Infrastructure\Repository\ShareRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -17,11 +16,11 @@ class Share
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
-    private string $company;
+    private string $slug;
 
     #[Assert\NotBlank]
-    #[ORM\Column(type: 'int')]
-    private int $amount = 1;
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $company;
 
     #[Assert\NotBlank]
     #[ORM\Column(type: 'float')]
@@ -33,16 +32,20 @@ class Share
 
     #[ORM\ManyToOne(targetEntity: IsaAccount::class, inversedBy: 'shares')]
     #[ORM\JoinColumn(nullable: true)]
-    private ?IsaAccount $owner;
+    //I would like to have this be IsaAccount, but for time it will be a string of the accountHolder name
+    private ?string $owner;
 
     public function __construct(
+        string $slug,
         string $company,
         float $startingValue,
         ?float $price = 0
     ) {
+        $this->slug = $slug;
         $this->company = $company;
         $this->value = $startingValue;
         $this->price = $price;
+        $this->owner = null;
     }
 
     public function getId(): ?int
@@ -50,19 +53,19 @@ class Share
         return $this->id;
     }
 
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
     public function getCompany(): string
     {
         return $this->company;
-    }
-
-    public function getAmount(): int
-    {
-        return $this->amount;
-    }
-
-    public function setAmount(int $amount): void
-    {
-        $this->amount = $amount;
     }
 
     public function getPrice(): float
@@ -83,5 +86,20 @@ class Share
     public function setValue(float $value): void
     {
         $this->value = $value;
+    }
+
+    public function getOwner(): ?string
+    {
+        return $this->owner ?? null;
+    }
+
+    public function setOwner(?string $owner): void
+    {
+        $this->owner = $owner;
+    }
+
+    public function isOwned(): bool
+    {
+        return $this->getOwner() !== null;
     }
 }
